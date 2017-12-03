@@ -113,8 +113,8 @@ def report_2(request):
             hub_2_houses.append(house)
             hub_2['house_count']+=1
             hub_2['population']+=int(house['house_population'])
-    hub_db_1 = Hub.objects.get(pk=1)
-    hub_2['days_to_exhaustion'] = round(hub_db_1.current_storage/hub_2['population'],0)
+    hub_db_2 = Hub.objects.get(pk=1)
+    hub_2['days_to_exhaustion'] = round(hub_db_2.current_storage/hub_2['population'],0)
     hub_2['critical_score'] = round(1/hub_2['days_to_exhaustion']*hub_2['population']/2,0)
     context = {'hub_2_houses': hub_2_houses, 'hub_2': hub_2}
     return render(request, 'foodsupply/report_hub_2.html', context)
