@@ -20,11 +20,57 @@ def index(request):
     return render(request, 'foodsupply/index.html')
     #return HttpResponse("Hello, world. You're at the foodsupply index.")
 
-def household(request):
+def household_main(request):
     return render(request, 'foodsupply/household.html')
 
 def hub(request):
-    return render(request, 'foodsupply/hub.html')
+    """
+    Excuse the really disgusting redundancy, it was 3:30AM, and I had run out of juice
+    """
+    household_df = pd.DataFrame(list(household.objects.all().values()))
+    hub_1 = dict()
+    hub_1['house_count']=0
+    hub_1['population']=0
+
+    hub_2 = dict()
+    hub_2['house_count']=0
+    hub_2['population']=0
+
+    hub_3 = dict()
+    hub_3['house_count']=0
+    hub_3['population']=0
+
+    for ele,house in household_df.iterrows():
+        if(house['household_id']> 0 and house['household_id'] < 6):
+            hub_1['house_count']+=1
+            hub_1['population']+=int(house['house_population'])
+        elif(house['household_id']> 5 and house['household_id'] < 11):
+            hub_2['house_count']+=1
+            hub_2['population']+=int(house['house_population'])
+        else:
+            hub_3['house_count']+=1
+            hub_3['population']+=int(house['house_population'])
+    print("PROBLEM 2!!!")
+    hub_db_1 = Hub.objects.get(pk=1)
+    hub_db_1.population = hub_1['population']
+    hub_db_1.save()
+    hub_db_2 = Hub.objects.get(pk=2)
+    hub_db_2.population = hub_1['population']
+    hub_db_2.save()
+    hub_db_3 = Hub.objects.get(pk=3)
+    hub_db_3.population = hub_1['population']
+    hub_db_3.save()
+
+    hub_1['days_to_exhaustion'] = round(hub_db_1.current_storage/hub_1['population'],0)
+    hub_2['days_to_exhaustion'] = round(hub_db_2.current_storage/hub_2['population'],0)
+    hub_3['days_to_exhaustion'] = round(hub_db_3.current_storage/hub_3['population'],0)
+
+    hub_1['critical_score'] = round(1/hub_1['days_to_exhaustion']*hub_1['population']/2,0)
+    hub_2['critical_score'] = round(1/hub_2['days_to_exhaustion']*hub_2['population']/2,0)
+    hub_3['critical_score'] = round(1/hub_3['days_to_exhaustion']*hub_3['population']/2,0)
+
+    context = {'hub_1':hub_1, 'hub_2':hub_2, 'hub_3':hub_3}
+    return render(request, 'foodsupply/hub.html',context)
 
 def add_household(request):
     if request.method == 'POST':

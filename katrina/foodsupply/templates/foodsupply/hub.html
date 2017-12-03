@@ -213,10 +213,10 @@ input[type=submit]:hover {
           <h1 style="color:#0C666F">Hub 1</h1>
         </div>
         <div class="panel-body">
-          <p><strong>20</strong> Total Households</p>
-          <p><strong>15</strong> Total Population</p>
-          <p><strong>5</strong> Average Days to Exhaustion</p>
-          <p><strong>2</strong> Overall Priority</p>
+          <p><strong>{{hub_1.house_count}}</strong> Total Households</p>
+          <p><strong>{{hub_1.population}}</strong> Total Population</p>
+          <p><strong>{{hub_1.days_to_exhaustion}}</strong> Days to Exhaustion</p>
+          <p><strong>{{hub_1.critical_score}}</strong> Critical Score</p>
         </div>
         <div class="panel-footer">
           <a href="{% url 'foodsupply:view_household' %}"
@@ -232,10 +232,10 @@ input[type=submit]:hover {
           <h1 style="color:#0C666F">Hub 2</h1>
         </div>
         <div class="panel-body">
-          <p><strong>20</strong> Total Households</p>
-          <p><strong>15</strong> Total Population</p>
-          <p><strong>5</strong> Average Days to Exhaustion</p>
-          <p><strong>2</strong> Overall Priority</p>
+          <p><strong>{{hub_2.house_count}}</strong> Total Households</p>
+          <p><strong>{{hub_2.population}}</strong> Total Population</p>
+          <p><strong>{{hub_2.days_to_exhaustion}}</strong> Days to Exhaustion</p>
+          <p><strong>{{hub_2.critical_score}}</strong> Critical Score</p>
         </div>
         <div class="panel-footer">
           <a href="{% url 'foodsupply:report' %}"
@@ -251,10 +251,10 @@ input[type=submit]:hover {
           <h1 style="color:#0C666F">Hub 3</h1>
         </div>
         <div class="panel-body">
-          <p><strong>20</strong> Total Households</p>
-          <p><strong>15</strong> Total Population</p>
-          <p><strong>5</strong> Average Days to Exhaustion</p>
-          <p><strong>2</strong> Overall Priority</p>
+          <p><strong>{{hub_3.house_count}}</strong> Total Households</p>
+          <p><strong>{{hub_3.population}}</strong> Total Population</p>
+          <p><strong>{{hub_3.days_to_exhaustion}}</strong> Days to Exhaustion</p>
+          <p><strong>{{hub_3.critical_score}}</strong> Critical Score</p>
         </div>
         <div class="panel-footer">
           <a href="{% url 'foodsupply:report' %}"
