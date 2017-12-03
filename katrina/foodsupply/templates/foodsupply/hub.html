@@ -66,7 +66,7 @@
     }
 
     input[type=submit]:hover {
-        background-color: #FFF8C9;
+        background-color: #0C666F;
         color:#0C666F
     }
 
@@ -182,7 +182,6 @@ input[type=submit]:hover {
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="{% url 'foodsupply:index' %}">Home</a></li>
-          <li class="active"><a href="#">Hub Manager</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="#">Hub Manager<span class="caret"></span></a>
@@ -239,7 +238,7 @@ input[type=submit]:hover {
           <p><strong>2</strong> Overall Priority</p>
         </div>
         <div class="panel-footer">
-          <a href="{% url 'foodsupply:hub' %}"
+          <a href="{% url 'foodsupply:report' %}"
               style="text-decoration:none;color:white;">
               <h4 style="color:#0C666F">View</h4>
           </a>
@@ -258,7 +257,7 @@ input[type=submit]:hover {
           <p><strong>2</strong> Overall Priority</p>
         </div>
         <div class="panel-footer">
-          <a href="{% url 'foodsupply:hub' %}"
+          <a href="{% url 'foodsupply:report' %}"
               style="text-decoration:none;color:white;">
               <h4 style="color:#0C666F">View</h4>
           </a>
@@ -267,9 +266,11 @@ input[type=submit]:hover {
     </div>
   </div>
 
-        <button type="button" align="center" style="background-color:#0C666F;color:white" class="btn btn-primary btn-lg btn-block">Optimze</button>
-
-
+<form action="{% url 'foodsupply:optimization' %}" method="post"> {% csrf_token %}
+  <div class="col-md-12">
+      <input action="{% url 'foodsupply:optimization' %}" type="submit" class="btn btn-primary btn-lg btn-block" value="Optmize">
+  </div>
+</form>
 
 </body>
 </html>

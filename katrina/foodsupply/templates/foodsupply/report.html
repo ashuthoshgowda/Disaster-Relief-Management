@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.logo {
+  color: #0C666F;
+    font-size: 30px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #000;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+
+.jumbotron {
+  background-color: #89D3D6;
+  color: #fff;
+  padding: 100px 25px;
+  background-image: url("../img/jumbotron_bg.jpg");
+  background-size: cover;
+}
+
+.container-fluid {
+  padding: 5px 50px;
+}
+.bg-grey {
+  background-color: #f6f6f6;
+}
+.logo {
+color: #FAE086;
+  font-size: 200px;
+}
+.panel {
+   border: 1px solid #A2ECD7;
+   border-radius:0 !important;
+   transition: box-shadow 0.5s;
+}
+.panel:hover {
+   box-shadow: 15px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-heading {
+   color: #fff !important;
+   background-color: #A2ECD7 !important;
+   padding: 25px;
+   border-bottom: 0px solid transparent;
+   border-top-left-radius: 0px;
+   border-top-right-radius: 0px;
+   border-bottom-left-radius: 0px;
+   border-bottom-right-radius: 0px;
+}
+.panel-footer {
+   background-color: white !important;
+}
+
+
+@media screen and (max-width: 768px) {
+.col-sm-4 {
+  text-align: center;
+  margin: 25px 0;
+}
+}
+</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+  <nav class="navbar navbar-inverse" class="collapse navbar-collapse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">LOGO</a>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'foodsupply:index' %}">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="#">Hub Manager<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'foodsupply:household' %}">Household</a></li>
+                <li><a href="{% url 'foodsupply:hub' %}">Hub Manager</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Reporting</h1>
+  <p>Analytics</p>
+</div>
+
+<div class="hubManager">
+<h1>Disaster Management Optimizer</h1>
+<h2>Hub Manager Optimization</h2>
+</div>
+  <div id="role" class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <a style="text-decoration:none;color:white;">
+                <h1>Hub 1</h1>
+            </a>
+          </div>
+            <div class="panel-footer">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Household ID</th>
+                    <th>Population</th>
+                    <th>Food Request Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>32</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>32</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>32</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="googleMap" style="height:400px;width:100%;"></div>
+  <script>
+  function myMap() {
+  var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+  var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?AIzaSyAg1vhI3C3LqbkZx5TOCw4M7Eu5xM4oud0&callback=myMap"></script>
+
+
+</body>
+</html>
