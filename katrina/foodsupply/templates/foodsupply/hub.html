@@ -9,10 +9,67 @@
       margin-bottom: 0;
       border-radius: 0;
     }
+    .navbar {
+        font-family: Montserrat, sans-serif;
+        margin-bottom: 0;
+        background-color: #2d2d30;
+        border: 0;
+        font-size: 11px !important;
+        letter-spacing: 4px;
+        opacity: 0.9;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #d5d5d5 !important;
+    }
+    .navbar-nav li a:hover {
+        color: #fff !important;
+    }
+    .navbar-nav li.active a {
+        color: #fff !important;
+        background-color: #29292c !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .open .dropdown-toggle {
+        color: #000;
+        background-color: #555 !important;
+    }
+    .dropdown-menu li a {
+        color: #000 !important;
+    }
+    .dropdown-menu li a:hover {
+        background-color: red !important;
+    }
+
+    .jumbotron {
+            background-color: #89D3D6;
+            color: #fff;
+            padding: 100px 25px;
+            background-image: url("../img/jumbotron_bg.jpg");
+            background-size: cover;
+        }
+
 
     .container-fluid {
         padding: 5px 50px;
     }
+
+    input[type=submit] {
+        background-color: #0C666F;
+        color: #EDEAE5;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    input[type=submit]:hover {
+        background-color: #FFF8C9;
+        color:#0C666F
+    }
+
 
 input[type=text], select, textarea{
     width: 100%;
@@ -29,7 +86,7 @@ input[type=text], select, textarea{
      transition: box-shadow 0.5s;
  }
  .panel:hover {
-     box-shadow: 15px 0px 40px rgba(0,0,0, .2);
+     box-shadow: 30px 0px 40px rgba(0,0,0, .2);
  }
 
  .panel-heading {
@@ -42,8 +99,9 @@ input[type=text], select, textarea{
      border-bottom-left-radius: 0px;
      border-bottom-right-radius: 0px;
  }
+
  .panel-footer {
-     background-color: white !important;
+     background-color: #EDEAE5 !important;
  }
 
 
@@ -53,8 +111,8 @@ label {
 }
 
 input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #0C666F;
+    color: #EDEAE5;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -63,7 +121,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #FFF8C9;
+    color:#0C666F
 }
 
 .container {
@@ -125,45 +184,92 @@ input[type=submit]:hover {
           <li><a href="{% url 'foodsupply:index' %}">Home</a></li>
           <li class="active"><a href="#">Hub Manager</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="#">Hub Manager<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'foodsupply:household' %}">Household</a></li>
+                <li><a href="{% url 'foodsupply:hub' %}">Hub Manager</a></li>
+              </ul>
+            </li>
+        </ul>
       </div>
     </div>
 </nav>
 
-
-<div class="hubManager">
-<h1>Disaster Management Optimizer</h1>
-<h2>Hub Manager</h2>
+<div class="jumbotron text-center">
+  <h1>Hub Manager</h1>
+  <p>Reporting and Analytics</p>
 </div>
-  <div id="role" class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default text-center">
-          <div class="panel-heading">
-            <a href="{% url 'foodsupply:view_household' %}"
-                style="text-decoration:none;color:white;">
-                <h1>View Requests</h1>
-            </a>
-          </div>
-          <div class="panel-footer">
-            <p2>some text</p2>
-          </div>
+
+
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>View And Optimize</h2>
+    <h4>Choose a Hub</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-md-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1 style="color:#0C666F">Hub 1</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>20</strong> Total Households</p>
+          <p><strong>15</strong> Total Population</p>
+          <p><strong>5</strong> Average Days to Exhaustion</p>
+          <p><strong>2</strong> Overall Priority</p>
+        </div>
+        <div class="panel-footer">
+          <a href="{% url 'foodsupply:view_household' %}"
+              style="text-decoration:none;color:white;">
+              <h4 style="color:#0C666F">View</h4>
+          </a>
         </div>
       </div>
-      <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default text-center">
-          <div class="panel-heading">
-            <a href="HubManager.html"
-                style="text-decoration:none;color:white;">
-                <h1>Optimize</h1>
-            </a>
-          </div>
-          <div class="panel-footer">
-            <p2>some text</p2>
-          </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1 style="color:#0C666F">Hub 2</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>20</strong> Total Households</p>
+          <p><strong>15</strong> Total Population</p>
+          <p><strong>5</strong> Average Days to Exhaustion</p>
+          <p><strong>2</strong> Overall Priority</p>
+        </div>
+        <div class="panel-footer">
+          <a href="{% url 'foodsupply:hub' %}"
+              style="text-decoration:none;color:white;">
+              <h4 style="color:#0C666F">View</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1 style="color:#0C666F">Hub 3</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>20</strong> Total Households</p>
+          <p><strong>15</strong> Total Population</p>
+          <p><strong>5</strong> Average Days to Exhaustion</p>
+          <p><strong>2</strong> Overall Priority</p>
+        </div>
+        <div class="panel-footer">
+          <a href="{% url 'foodsupply:hub' %}"
+              style="text-decoration:none;color:white;">
+              <h4 style="color:#0C666F">View</h4>
+          </a>
         </div>
       </div>
     </div>
   </div>
+
+        <button type="button" align="center" style="background-color:#0C666F;color:white" class="btn btn-primary btn-lg btn-block">Optimze</button>
+
+
 
 </body>
 </html>
