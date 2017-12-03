@@ -1,0 +1,15 @@
+<table>
+    <thead>
+        <tr>
+            <th>hub_id</th>
+            <th>population</th>
+
+            <th>current_storage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hub in all_hub %}
+            <tr><td>{{ hub.hub_id }}</td><td>{{ hub.current_storage }}</td><td>{{ hub.population }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
