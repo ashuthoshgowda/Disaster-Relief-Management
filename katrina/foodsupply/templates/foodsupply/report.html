@@ -88,6 +88,134 @@ color: #FAE086;
    background-color: white !important;
 }
 
+/****** Statistic ******/
+.statistic {
+  margin: 1em 0;
+  text-transform: uppercase;
+  display: inline-block;
+
+  .value {
+    font-size: 4em;
+    line-height: 1em;
+    text-align: center;
+
+    &.text {
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    img {
+      max-height: .8em;
+      vertical-align: baseline;
+    }
+  }
+
+  .label {
+    color: inherit;
+    display: block;
+    font-size: 1em;
+    text-align: center;
+  }
+}
+
+.statistic + .statistic {
+  margin-left: 1.5em;
+}
+
+/*** Horizontal Statistic ***/
+.statistic.horizontal {
+  .value,
+  .label {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+
+/****** Statistic Group ******/
+.statistic-group {
+  margin: 1em 0;
+
+  .statistic {
+    display: inline-block;
+  }
+}
+
+/*** Horizontal Statistic Group ***/
+.statistic-group.horizontal {
+  .statistic {
+    display: block;
+
+    .value,
+    .label {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+  .statistic + .statistic {
+    margin-left: 0;
+  }
+}
+
+/*** Float Statistics ***/
+.statistic {
+  &.pull-left {
+    margin-right: 1em;
+  }
+  &.pull-right {
+    margin-left: 1em;
+  }
+}
+
+/****** Statistic Sizes ******/
+.statistic {
+  &.mini .value {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  &.tiny .value {
+    font-size: 2em;
+  }
+  &.small .value {
+    font-size: 3em !important;
+  }
+  &.large .value {
+    font-size: 5em;
+  }
+  &.huge .value {
+    font-size: 6em;
+  }
+}
+
+
+/****** Bootstrap Colors ******/
+
+@gray-base: #000;
+@gray-darker: lighten(@gray-base, 13.5%);
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 46.7%);
+@gray-lighter: lighten(@gray-base, 93.5%);
+@brand-primary: darken(#428bca, 6.5%);
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+
+/****** Bootstrap Typography ******/
+@font-size-base: 14px;
+@font-size-large: ceil((@font-size-base * 1.25));
+@font-size-small: ceil((@font-size-base * 0.85));
+@font-size-h1: floor((@font-size-base * 2.6));
+@font-size-h2: floor((@font-size-base * 2.15));
+@font-size-h3: ceil((@font-size-base * 1.7));
+@font-size-h4: ceil((@font-size-base * 1.25));
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85));
+
+
+
+
+
 
 @media screen and (max-width: 768px) {
 .col-sm-4 {
@@ -139,17 +267,14 @@ color: #FAE086;
   <p>Analytics</p>
 </div>
 
-<div class="hubManager">
-<h1>Disaster Management Optimizer</h1>
-<h2>Hub Manager Optimization</h2>
-</div>
+
   <div id="role" class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-sm-12">
         <div class="panel panel-default text-center">
           <div class="panel-heading">
             <a style="text-decoration:none;color:white;">
-                <h1>Hub 1</h1>
+                <h1>Summary by Household</h1>
             </a>
           </div>
             <div class="panel-footer">
@@ -182,20 +307,39 @@ color: #FAE086;
           </div>
         </div>
       </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <a style="text-decoration:none;color:white;">
+                <h1>Overall Statistics</h1>
+            </a>
+          </div>
+            <div class="panel-footer">
+                 <div class="panel-body">
+                   <div class="statistic-group">
+                     <div class="statistic">
+                       <div class="value">22</div>
+                       <div class="label" style="color:black">Members</div>
+                     </div><!-- /.statistic -->
+
+                     <div class="statistic">
+                       <div class="value">31,200</div>
+                       <div class="label" style="color:black">Days to Exhaust</div>
+                     </div><!-- /.statistic -->
+
+                     <div class="statistic">
+                       <div class="value">22</div>
+                       <div class="label" style="color:black">Critical Score</div>
+                     </div><!-- /.statistic -->
+                   </div><!-- /.statistic-group -->
+                 </div><!-- /.panel-body -->
+               </div><!-- /.panel -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="googleMap" style="height:400px;width:100%;"></div>
-  <script>
-  function myMap() {
-  var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-  var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map);
-  }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?AIzaSyAg1vhI3C3LqbkZx5TOCw4M7Eu5xM4oud0&callback=myMap"></script>
 
 
 </body>
