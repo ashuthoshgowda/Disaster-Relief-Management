@@ -39,6 +39,18 @@ def view_household(request):
     context = {'all_hub': all_hub}
     return render(request, 'foodsupply/view_household.html', context)
 
+def report(request):
+    df = pd.DataFrame(list(Hub.objects.all().values()))
+    all_hub = Hub.objects.all()
+    context = {'all_hub': all_hub}
+    return render(request, 'foodsupply/report.html', context)
+
+def optimization(request):
+    df = pd.DataFrame(list(Hub.objects.all().values()))
+    all_hub = Hub.objects.all()
+    context = {'all_hub': all_hub}
+    return render(request, 'foodsupply/optimization.html', context)
+
 
 """
 df = pd.DataFrame(list(BlogPost.objects.filter(date__gte=datetime.datetime(2012, 5, 1)).values()))
