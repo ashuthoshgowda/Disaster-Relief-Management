@@ -14,8 +14,40 @@
       margin-bottom: 0;
       border-radius: 0;
     }
+    .navbar {
+        font-family: Montserrat, sans-serif;
+        margin-bottom: 0;
+        background-color: #2d2d30;
+        border: 0;
+        font-size: 11px !important;
+        letter-spacing: 4px;
+        opacity: 0.9;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #d5d5d5 !important;
+    }
+    .navbar-nav li a:hover {
+        color: #fff !important;
+    }
+    .navbar-nav li.active a {
+        color: #fff !important;
+        background-color: #29292c !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .open .dropdown-toggle {
+        color: #000;
+        background-color: #555 !important;
+    }
+    .dropdown-menu li a {
+        color: #000 !important;
+    }
+    .dropdown-menu li a:hover {
+        background-color: red !important;
+    }
 
-  .jumbotron {
+.jumbotron {
     background-color: #89D3D6;
     color: #fff;
     padding: 100px 25px;
@@ -86,7 +118,7 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown"><a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Select Role<span class="caret"></span></a>
+              <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="#">Select Role<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="{% url 'foodsupply:household' %}">Household</a></li>
                   <li><a href="{% url 'foodsupply:hub' %}">Hub Manager</a></li>
