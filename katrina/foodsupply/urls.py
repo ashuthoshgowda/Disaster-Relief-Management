@@ -6,7 +6,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^hub/$', views.hub, name='hub'),
 
-    url(r'^household/$', views.household, name='household'),
+    url(r'^household/$', views.household_main, name='household'),
     url(r'^view_household$', views.view_household, name='view_household'),
     url(r'^thankyou$', views.add_household, name='thankyou'),
     url(r'^report$', views.report, name='report'),
