@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.logo {
+  color: #0C666F;
+    font-size: 30px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #000;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+
+.jumbotron {
+  background-color: #89D3D6;
+  color: #fff;
+  padding: 100px 25px;
+  background-image: url("../img/jumbotron_bg.jpg");
+  background-size: cover;
+}
+
+.container-fluid {
+  padding: 5px 50px;
+}
+.bg-grey {
+  background-color: #f6f6f6;
+}
+.logo {
+color: #FAE086;
+  font-size: 200px;
+}
+.panel {
+   border: 1px solid #A2ECD7;
+   border-radius:0 !important;
+   transition: box-shadow 0.5s;
+}
+.panel:hover {
+   box-shadow: 15px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-heading {
+   color: #fff !important;
+   background-color: #A2ECD7 !important;
+   padding: 25px;
+   border-bottom: 0px solid transparent;
+   border-top-left-radius: 0px;
+   border-top-right-radius: 0px;
+   border-bottom-left-radius: 0px;
+   border-bottom-right-radius: 0px;
+}
+.panel-footer {
+   background-color: white !important;
+}
+
+/****** Statistic ******/
+.statistic {
+  margin: 1em 0;
+  text-transform: uppercase;
+  display: inline-block;
+
+  .value {
+    font-size: 4em;
+    line-height: 1em;
+    text-align: center;
+
+    &.text {
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    img {
+      max-height: .8em;
+      vertical-align: baseline;
+    }
+  }
+
+  .label {
+    color: inherit;
+    display: block;
+    font-size: 1em;
+    text-align: center;
+  }
+}
+
+.statistic + .statistic {
+  margin-left: 1.5em;
+}
+
+/*** Horizontal Statistic ***/
+.statistic.horizontal {
+  .value,
+  .label {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+
+/****** Statistic Group ******/
+.statistic-group {
+  margin: 1em 0;
+
+  .statistic {
+    display: inline-block;
+  }
+}
+
+/*** Horizontal Statistic Group ***/
+.statistic-group.horizontal {
+  .statistic {
+    display: block;
+
+    .value,
+    .label {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+  .statistic + .statistic {
+    margin-left: 0;
+  }
+}
+
+/*** Float Statistics ***/
+.statistic {
+  &.pull-left {
+    margin-right: 1em;
+  }
+  &.pull-right {
+    margin-left: 1em;
+  }
+}
+
+/****** Statistic Sizes ******/
+.statistic {
+  &.mini .value {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  &.tiny .value {
+    font-size: 2em;
+  }
+  &.small .value {
+    font-size: 3em !important;
+  }
+  &.large .value {
+    font-size: 5em;
+  }
+  &.huge .value {
+    font-size: 6em;
+  }
+}
+
+
+/****** Bootstrap Colors ******/
+
+@gray-base: #000;
+@gray-darker: lighten(@gray-base, 13.5%);
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 46.7%);
+@gray-lighter: lighten(@gray-base, 93.5%);
+@brand-primary: darken(#428bca, 6.5%);
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+
+/****** Bootstrap Typography ******/
+@font-size-base: 14px;
+@font-size-large: ceil((@font-size-base * 1.25));
+@font-size-small: ceil((@font-size-base * 0.85));
+@font-size-h1: floor((@font-size-base * 2.6));
+@font-size-h2: floor((@font-size-base * 2.15));
+@font-size-h3: ceil((@font-size-base * 1.7));
+@font-size-h4: ceil((@font-size-base * 1.25));
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85));
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+.col-sm-4 {
+  text-align: center;
+  margin: 25px 0;
+}
+}
+</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+  <nav class="navbar navbar-inverse" class="collapse navbar-collapse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">LOGO</a>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'foodsupply:index' %}">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="#">Hub Manager<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'foodsupply:household' %}">Household</a></li>
+                <li><a href="{% url 'foodsupply:hub' %}">Hub Manager</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Reporting</h1>
+  <p>Analytics</p>
+</div>
+
+
+  <div id="role" class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <a style="text-decoration:none;color:white;">
+                <h1>Summary by Household</h1>
+            </a>
+          </div>
+            <div class="panel-footer">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Household ID</th>
+                    <th>Food Request Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for house in hub_2_houses %}
+                      <tr><td>{{ house.household_id }}</td><td>{{ house.house_population }}</td></tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <a style="text-decoration:none;color:white;">
+                <h1>Overall Statistics</h1>
+            </a>
+          </div>
+            <div class="panel-footer">
+                 <div class="panel-body">
+                   <div class="statistic-group">
+                     <div class="statistic">
+                       <div class="value"><h1>{{hub_2.population}}</h1></div>
+                       <div class="label" style="color:black">People being served</div>
+                     </div><!-- /.statistic -->
+
+                     <div class="statistic">
+                       <div class="value"><h1>{{hub_2.days_to_exhaustion}}</h1></div>
+                       <div class="label" style="color:black">Days to Exhaust</div>
+                     </div><!-- /.statistic -->
+
+                     <div class="statistic">
+                       <div class="value"><h1>{{hub_2.critical_score}}</h1></div>
+                       <div class="label" style="color:black">Critical Score</div>
+                     </div><!-- /.statistic -->
+                   </div><!-- /.statistic-group -->
+                 </div><!-- /.panel-body -->
+               </div><!-- /.panel -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
