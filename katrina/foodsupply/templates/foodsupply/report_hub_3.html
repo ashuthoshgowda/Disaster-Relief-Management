@@ -186,6 +186,27 @@ color: #FAE086;
   }
 }
 
+footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+    position: fixed;
+
+left: 0;
+
+right: 0;
+
+bottom: 0;
+
+}
+footer a {
+    color: #f5f5f5;
+}
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
 
 /****** Bootstrap Colors ******/
 
@@ -237,7 +258,7 @@ color: #FAE086;
     <div class="container-fluid">
       <div class="navbar-header">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">K0</a>
+          <a class="navbar-brand" href="{% url 'foodsupply:index' %}">K0</a>
         </div>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
@@ -334,8 +355,6 @@ color: #FAE086;
       </div>
     </div>
   </div>
-
-
 
 </body>
 </html>
