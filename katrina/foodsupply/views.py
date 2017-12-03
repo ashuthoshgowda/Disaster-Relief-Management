@@ -85,11 +85,56 @@ def view_household(request):
     context = {'all_hub': all_hub}
     return render(request, 'foodsupply/view_household.html', context)
 
-def report(request):
-    df = pd.DataFrame(list(Hub.objects.all().values()))
-    all_hub = Hub.objects.all()
-    context = {'all_hub': all_hub}
-    return render(request, 'foodsupply/report.html', context)
+def report_1(request):
+    house_list = list(household.objects.all().values())
+    hub_1_houses = []
+    hub_1 = dict()
+    hub_1['house_count']=0
+    hub_1['population']=0
+    for house in house_list:
+        if(house['household_id']> 0 and house['household_id'] < 6):
+            hub_1_houses.append(house)
+            hub_1['house_count']+=1
+            hub_1['population']+=int(house['house_population'])
+    hub_db_1 = Hub.objects.get(pk=1)
+    hub_1['days_to_exhaustion'] = round(hub_db_1.current_storage/hub_1['population'],0)
+    hub_1['critical_score'] = round(1/hub_1['days_to_exhaustion']*hub_1['population']/2,0)
+    context = {'hub_1_houses': hub_1_houses, 'hub_1': hub_1}
+    return render(request, 'foodsupply/report_hub_1.html', context)
+
+def report_2(request):
+    house_list = list(household.objects.all().values())
+    hub_2_houses = []
+    hub_2 = dict()
+    hub_2['house_count']=0
+    hub_2['population']=0
+    for house in house_list:
+        if(house['household_id']> 5 and house['household_id'] < 11):
+            hub_2_houses.append(house)
+            hub_2['house_count']+=1
+            hub_2['population']+=int(house['house_population'])
+    hub_db_1 = Hub.objects.get(pk=1)
+    hub_2['days_to_exhaustion'] = round(hub_db_1.current_storage/hub_2['population'],0)
+    hub_2['critical_score'] = round(1/hub_2['days_to_exhaustion']*hub_2['population']/2,0)
+    context = {'hub_2_houses': hub_2_houses, 'hub_2': hub_2}
+    return render(request, 'foodsupply/report_hub_2.html', context)
+
+def report_3(request):
+    house_list = list(household.objects.all().values())
+    hub_3_houses = []
+    hub_3 = dict()
+    hub_3['house_count']=0
+    hub_3['population']=0
+    for house in house_list:
+        if(house['household_id']> 10):
+            hub_3_houses.append(house)
+            hub_3['house_count']+=1
+            hub_3['population']+=int(house['house_population'])
+    hub_db_3 = Hub.objects.get(pk=1)
+    hub_3['days_to_exhaustion'] = round(hub_db_3.current_storage/hub_3['population'],0)
+    hub_3['critical_score'] = round(1/hub_3['days_to_exhaustion']*hub_3['population']/2,0)
+    context = {'hub_3_houses': hub_3_houses, 'hub_3': hub_3}
+    return render(request, 'foodsupply/report_hub_3.html', context)
 
 def optimization(request):
     df = pd.DataFrame(list(Hub.objects.all().values()))

@@ -282,26 +282,13 @@ color: #FAE086;
                 <thead>
                   <tr>
                     <th>Household ID</th>
-                    <th>Population</th>
                     <th>Food Request Count</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>32</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>32</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>32</td>
-                    <td>4</td>
-                  </tr>
+                  {% for house in hub_3_houses %}
+                      <tr><td>{{ house.household_id }}</td><td>{{ house.house_population }}</td></tr>
+                  {% endfor %}
                 </tbody>
               </table>
           </div>
@@ -318,17 +305,17 @@ color: #FAE086;
                  <div class="panel-body">
                    <div class="statistic-group">
                      <div class="statistic">
-                       <div class="value">22</div>
-                       <div class="label" style="color:black">Members</div>
+                       <div class="value"><h1>{{hub_3.population}}</h1></div>
+                       <div class="label" style="color:black">People being served</div>
                      </div><!-- /.statistic -->
 
                      <div class="statistic">
-                       <div class="value">31,200</div>
+                       <div class="value"><h1>{{hub_3.days_to_exhaustion}}</h1></div>
                        <div class="label" style="color:black">Days to Exhaust</div>
                      </div><!-- /.statistic -->
 
                      <div class="statistic">
-                       <div class="value">22</div>
+                       <div class="value"><h1>{{hub_3.critical_score}}</h1></div>
                        <div class="label" style="color:black">Critical Score</div>
                      </div><!-- /.statistic -->
                    </div><!-- /.statistic-group -->
