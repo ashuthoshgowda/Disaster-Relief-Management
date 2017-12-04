@@ -137,11 +137,33 @@ def report_3(request):
     return render(request, 'foodsupply/report_hub_3.html', context)
 
 def optimization(request):
-    df = pd.DataFrame(list(Hub.objects.all().values()))
-    all_hub = Hub.objects.all()
-    context = {'all_hub': all_hub}
+    hub_list = list(Hub.objects.all().values())
+    hub_json_list=list()
+    for hub in hub_list:
+        #print(hub)
+        hub_json = dict()
+        hub_json['current_storage'] = hub['current_storage']
+        hub_json['population'] = hub['population']
+        hub_json['hub_id'] = hub['hub_id']
+        hub_json['days_to_exhaust'] = round(hub['current_storage']/hub['population'],0)
+        hub_json['critical_score'] = round(1/hub_json['days_to_exhaust']*hub['population']/2,0)
+        #print(hub_json)
+        hub_json_list.append(hub_json)
+        hub_df = pd.DataFrame(hub_json_list)
+    optimize = get_optimize(hub_df)
+    context = {'optimize': optimize}
+    print(context)
     return render(request, 'foodsupply/optimization.html', context)
 
+def get_optimize(hub_df):
+    critical_hub = hub_df.loc[hub_df['critical_score'].idxmax()]
+    safe_hub = hub_df.loc[hub_df['critical_score'].idxmin()]
+    move_quantity = round((safe_hub['current_storage']-critical_hub['current_storage'])/3,0)
+    optimize = {'from_hub':safe_hub['hub_id'],
+                'to_hub':critical_hub['hub_id'],
+                'move_quantity': move_quantity}
+
+    return(optimize)
 
 """
 df = pd.DataFrame(list(BlogPost.objects.filter(date__gte=datetime.datetime(2012, 5, 1)).values()))
